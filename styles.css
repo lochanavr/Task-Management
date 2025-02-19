@@ -1,0 +1,1072 @@
+:root {
+    --primary-color: #4f46e5;
+    --primary-hover: #4338ca;
+    --background-color: #f8fafc;
+    --card-background: #ffffff;
+    --text-color: #1e293b;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+    --hover-color: #f1f5f9;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+}
+
+/* Dark theme colors */
+[data-theme="dark"] {
+    --primary-color: #818cf8;
+    --primary-hover: #6366f1;
+    --background-color: #0f172a;
+    --card-background: #1e293b;
+    --text-color: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --border-color: #334155;
+    --hover-color: #1e293b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+header {
+    margin-bottom: 2rem;
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+h1 i {
+    color: var(--primary-color);
+}
+
+.theme-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    transition: background-color 0.2s;
+}
+
+.theme-toggle:hover {
+    background-color: var(--hover-color);
+}
+
+.task-controls {
+    background-color: var(--card-background);
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1.5rem;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    background-color: var(--card-background);
+    padding: 1rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    flex-wrap: wrap;
+    box-shadow: var(--shadow-sm);
+}
+
+.input-group > * {
+    min-width: 0; /* This prevents flex items from overflowing */
+}
+
+.input-group input[type="text"] {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-group input[type="text"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-color)20;
+    outline: none;
+}
+
+.input-group input[type="date"],
+.input-group select,
+#sortTasks {
+    min-width: 130px;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1em;
+    padding-right: 2.5rem;
+}
+
+.input-group input[type="date"]:hover,
+.input-group select:hover,
+#sortTasks:hover {
+    border-color: var(--primary-color);
+}
+
+/* Dark mode specific styles */
+[data-theme="dark"] .input-group input[type="date"],
+[data-theme="dark"] .input-group select,
+[data-theme="dark"] #sortTasks {
+    background-color: var(--card-background);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .input-group input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.input-group i {
+    color: var(--text-secondary);
+}
+
+input[type="text"]::placeholder {
+    color: var(--text-secondary);
+}
+
+button {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: var(--radius-md);
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover {
+    background-color: var(--primary-hover);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+.filters {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    font-size: 0.9rem;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.filter-btn i {
+    margin-right: 0.4rem;
+}
+
+.task-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 0 0.5rem;
+}
+
+#taskCount {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.clear-btn {
+    background-color: transparent;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.clear-btn:hover {
+    color: #ef4444;
+    background-color: #fee2e2;
+}
+
+.task-list {
+    background-color: var(--card-background);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    max-height: 50vh;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    animation: slideIn 0.3s ease;
+    transform-origin: top;
+    gap: 1rem;
+    position: relative;
+}
+
+.task-item:hover {
+    background-color: var(--hover-color);
+}
+
+.task-checkbox {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    cursor: pointer;
+    appearance: none;
+    position: relative;
+}
+
+.task-checkbox:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.task-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 0.8rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.task-content {
+    flex: 1;
+    font-size: 0.95rem;
+}
+
+.task-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.delete-btn {
+    padding: 0.5rem;
+    background-color: transparent;
+    color: var(--text-secondary);
+}
+
+.delete-btn:hover {
+    color: #ef4444;
+    background-color: #fee2e2;
+}
+
+.completed .task-content {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+.empty-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 3rem 1.5rem;
+    color: var(--text-secondary);
+}
+
+.empty-message i {
+    font-size: 3rem;
+    opacity: 0.5;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        margin: 0;
+        padding: 1rem;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+
+    .filters {
+        justify-content: center;
+    }
+
+    .task-actions {
+        flex-direction: column;
+    }
+
+    .task-item {
+        padding: 1rem;
+    }
+}
+
+/* Add these new styles after your existing CSS */
+
+.input-group input[type="date"],
+.input-group select {
+    padding: 0.75rem;
+    border: none;
+    background: transparent;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.sort-select {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.task-item {
+    position: relative;
+}
+
+.task-content-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.task-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.priority-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.priority-high {
+    background-color: #fee2e2;
+    color: #ef4444;
+}
+
+.priority-medium {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.priority-low {
+    background-color: #ecfdf5;
+    color: #059669;
+}
+
+.task-notes {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+.task-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.edit-btn {
+    padding: 0.5rem;
+    background-color: transparent;
+    color: var(--text-secondary);
+}
+
+.edit-btn:hover {
+    color: var(--primary-color);
+    background-color: var(--hover-color);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background-color: var(--card-background);
+    border-radius: var(--radius-lg);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--shadow-md);
+}
+
+.modal-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.modal-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.modal-body input,
+.modal-body select,
+.modal-body textarea {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.modal-body textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--hover-color);
+}
+
+.due-date.overdue {
+    color: #ef4444;
+}
+
+.due-date.overdue i {
+    color: #ef4444;
+}
+
+/* Add these styles to make the date and priority inputs more visible */
+.input-group input[type="date"],
+.input-group select {
+    min-width: 140px;
+    border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
+    margin: 0 0.5rem;
+}
+
+/* Improve the visibility of the sort select on dark mode */
+[data-theme="dark"] .sort-select {
+    background-color: var(--card-background);
+}
+
+/* Add a hover effect to the sort select */
+.sort-select:hover {
+    border-color: var(--primary-color);
+}
+
+/* Add these new styles */
+
+/* Categories Bar */
+.categories-bar {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    overflow-x: auto;
+    padding: 0.5rem;
+    scrollbar-width: none;
+}
+
+.categories-bar::-webkit-scrollbar {
+    display: none;
+}
+
+.category-btn {
+    background-color: var(--card-background);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-md);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-right: 2.5rem;
+    font-size: 0.95rem;
+}
+
+.category-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.category-btn i {
+    font-size: 0.9rem;
+}
+
+.add-category-btn {
+    min-width: 40px;
+    width: 40px;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Progress Bar */
+.progress-section {
+    background-color: var(--card-background);
+    padding: 1.25rem;
+    border-radius: var(--radius-lg);
+    margin-top: 1rem;
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.progress-text {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.progress-percentage {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.progress-bar {
+    height: 6px;
+    background-color: var(--border-color);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Category Colors */
+.category-badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+/* Category Modal Additions */
+.modal-body input[type="color"] {
+    width: 100%;
+    height: 40px;
+    padding: 0;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+}
+
+/* Responsive Design Updates */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .categories-bar {
+        padding-bottom: 0.5rem;
+    }
+
+    .input-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .input-group input[type="text"],
+    .input-group input[type="date"],
+    .input-group select,
+    .input-group button {
+        width: 100%;
+    }
+}
+
+/* Make the add task button more prominent */
+#addTask {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: var(--radius-md);
+}
+
+#addTask:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+#addTask:active {
+    transform: translateY(0);
+}
+
+/* Add these styles for category management */
+.delete-category {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+    background-color: var(--hover-color);
+}
+
+.category-btn:hover .delete-category {
+    opacity: 1;
+}
+
+.delete-category:hover {
+    background-color: #fee2e2;
+    color: #ef4444;
+}
+
+/* Don't show delete button on "All Categories" */
+.category-btn[data-category="all"] {
+    padding-right: 1rem;
+}
+
+.category-btn[data-category="all"] .delete-category {
+    display: none;
+}
+
+/* Style for invalid category input */
+.invalid-input {
+    border-color: #ef4444 !important;
+}
+
+/* Category color preview */
+.color-preview {
+    width: 100%;
+    height: 40px;
+    margin-top: 0.5rem;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 500;
+}
+
+/* Add these responsive styles */
+@media (max-width: 480px) {
+    .task-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .task-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .task-actions {
+        width: 100%;
+        justify-content: flex-end;
+        margin-top: 0.5rem;
+    }
+
+    .input-group {
+        gap: 0.75rem;
+    }
+
+    .filters {
+        flex-direction: column;
+    }
+
+    .sort-select {
+        width: 100%;
+    }
+}
+
+/* Fix progress bar on mobile */
+@media (max-width: 768px) {
+    .progress-section {
+        margin: 1rem -1rem -1rem;
+        border-radius: 0;
+    }
+}
+
+/* Add loading and error states */
+.loading, .error-message {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+}
+
+.error-message {
+    color: #ef4444;
+}
+
+/* Add delete animation */
+.task-item.removing {
+    animation: slideOut 0.3s ease forwards;
+}
+
+@keyframes slideOut {
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+
+/* Improve select option visibility in dark mode */
+[data-theme="dark"] select option {
+    background-color: var(--card-background);
+    color: var(--text-color);
+}
+
+/* Add focus styles for better accessibility */
+.input-group input[type="date"]:focus,
+.input-group select:focus,
+#sortTasks:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-color)20;
+    outline: none;
+}
+
+/* Mobile responsiveness improvements */
+@media (max-width: 768px) {
+    .input-group {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .input-group input[type="text"],
+    .input-group input[type="date"],
+    .input-group select,
+    #addTask {
+        width: 100%;
+        min-width: 0;
+    }
+
+    #addTask {
+        justify-content: center;
+    }
+}
+
+/* Update datetime input styles */
+.input-group input[type="datetime-local"] {
+    min-width: 200px;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+[data-theme="dark"] .input-group input[type="datetime-local"] {
+    background-color: var(--card-background);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .input-group input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* Update category button styles */
+.category-btn {
+    background-color: var(--card-background);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-md);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-right: 2.5rem;
+    font-size: 0.95rem;
+}
+
+/* Style datetime input in modal */
+.modal-body input[type="datetime-local"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+[data-theme="dark"] .modal-body input[type="datetime-local"] {
+    background-color: var(--card-background);
+    color: var(--text-color);
+}
+
+[data-theme="dark"] .modal-body input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+/* Search Container */
+.search-container {
+    margin-bottom: 1.5rem;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--card-background);
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.search-box i {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    background: none;
+    padding: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text-color);
+    outline: none;
+}
+
+.search-box input::placeholder {
+    color: var(--text-secondary);
+}
+
+/* Update responsive styles */
+@media (max-width: 768px) {
+    .search-container {
+        margin-bottom: 1rem;
+    }
+    
+    .search-box {
+        padding: 0.75rem 1rem;
+    }
+}
+
+/* Update Popup Styles */
+.popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    box-shadow: var(--shadow-md);
+    transform: translateY(150%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.popup.show {
+    transform: translateY(0);
+}
+
+.popup-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-color);
+    min-width: 250px;
+}
+
+.popup-icon {
+    font-size: 1.25rem;
+}
+
+.popup-icon.success {
+    color: #10b981;
+}
+
+.popup-icon.delete {
+    color: #ef4444;
+}
+
+.popup-message {
+    flex: 1;
+    font-weight: 500;
+}
+
+.popup-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.25rem;
+    padding: 0.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.popup-close:hover {
+    background-color: var(--hover-color);
+    color: var(--text-color);
+}
+
+/* Dark mode support */
+[data-theme="dark"] .popup {
+    background-color: var(--card-background);
+    border-color: var(--border-color);
+}
+
+/* Add recurring task styles */
+.task-meta .recurrence-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius-md);
+    font-size: 0.8rem;
+    background-color: var(--primary-color)10;
+    color: var(--primary-color);
+}
+
+.recurrence-badge i {
+    font-size: 0.75rem;
+}
+
+/* Update task item spacing */
+.task-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+} 
