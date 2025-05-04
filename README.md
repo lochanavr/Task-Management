@@ -1,30 +1,49 @@
-**TaskMate - Smart Task Management App✅**
+# 🚀 TaskMate - Advanced Task Management Application
 
-TaskMate is an advanced **task management application** built with **HTML, CSS, and JavaScript**. It helps users efficiently organize tasks, set priorities, due dates, and categories while maintaining an intuitive user experience.
+**TaskMate** is a feature-rich, modern task management web application built using HTML, CSS, and Vanilla JavaScript. Designed for both personal and professional use, it offers an intuitive and powerful interface to help you stay organized, productive, and in control of your daily tasks.
 
-## **🚀 Features**
-✔ Add, edit, delete, and complete tasks  
-✔ Set due dates and priorities  
-✔ Categorize tasks (Work, Personal, Shopping, etc.)  
-✔ Search and filter tasks dynamically  
-✔ Dark & Light mode support 🌙  
-✔ Task progress tracking with a progress bar  
-✔ Local storage support for data persistence  
-✔ Responsive design for all devices 📱  
+---
 
-## **📂 Tech Stack**
-- **Frontend**: HTML, CSS, JavaScript  
-- **Icons & Fonts**: Font Awesome, Google Fonts  
-- **Storage**: LocalStorage  
+## 🌟 Key Features
 
-## **💡 How to Use**
-1. Clone the repository:  
-   ```bash
-   git clone https://github.com/your-username/taskmate.git
-   ```
-2. Open `index.html` in a browser.  
-3. Start managing your tasks efficiently! 🚀  
+✅ **Task Management**  
+- Create, edit, and delete tasks easily  
+- Drag-and-drop functionality for reordering tasks  
 
-## **🔗 Live Demo**
-https://lochanavr.github.io/Task-Management/
+🎯 **Organizational Tools**  
+- Assign priority levels (High, Medium, Low)  
+- Set due dates and reminders  
+- Filter and sort tasks by status, priority, or date  
+
+🌙 **UI/UX Enhancements**  
+- Dark mode toggle  
+- Responsive design across all screen sizes  
+- Visual feedback and animations for smooth interactions  
+
+💾 **Persistence & Productivity**  
+- Local Storage auto-save  
+- Undo deleted tasks  
+- Keyboard shortcuts for speed  
+- Task progress tracking and real-time statistics  
+- Sound notifications for important actions  
+
+---
+
+## 🛠️ Built With
+
+- **HTML5** – Structure and semantic layout  
+- **CSS3** – Modern animations, transitions, and responsiveness  
+- **JavaScript (ES6+)** – Core logic and functionality  
+- **Local Storage API** – Data persistence in the browser  
+
+---
+
+## 🔗 Live Demo
+
+👉 [View Live Project](https://your-demo-link.com)  
+*(Replace with GitHub Pages or Netlify link)*
+
+---
+
+## 📂 Project Structure
 
