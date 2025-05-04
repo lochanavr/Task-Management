@@ -40,10 +40,9 @@
 
 ## 🔗 Live Demo
 
-👉 [View Live Project](https://your-demo-link.com)  
-*(Replace with GitHub Pages or Netlify link)*
+👉 [View Live Project](https://lochanavr.github.io/Task-Management/)  
 
 ---
 
-## 📂 Project Structure
+
 
